@@ -8,8 +8,8 @@ async function start() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('Test Nest.js')
-    .setDescription('Test Docs')
+    .setTitle('Tech task for Rangein')
+    .setDescription('Bla-bla-bla')
     .setVersion('1.0.0')
     .addTag('Vladyslav Rohalov')
     .build();

@@ -1,19 +1,13 @@
 import 'dotenv/config';
 import { Module } from '@nestjs/common';
-import { SequelizeModule } from '@nestjs/sequelize';
-import { UsersModule } from './users/users.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+// import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigModule } from '@nestjs/config';
 import { User } from './users/users.model';
-import { RolesModule } from './roles/roles.module';
-import { Role } from './roles/roles.model';
-import { UserRoles } from './roles/user-roles.model';
+import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
-import { PostsModule } from './posts/posts.module';
-import { Post } from './posts/posts.model';
-import { FilesModule } from './files/files.module';
-import { ServeStaticModule } from '@nestjs/serve-static';
-// import { join } from 'path';
-import * as path from 'path';
+import { Product } from './products/products.model';
+import { ProductsModule } from './products/products.module';
 
 const {
   POSTGRES_HOST,
@@ -28,24 +22,19 @@ const {
   providers: [],
   imports: [
     ConfigModule.forRoot({ envFilePath: '.env' }),
-    ServeStaticModule.forRoot({
-      rootPath: path.resolve(__dirname, 'static'),
-    }),
-    SequelizeModule.forRoot({
-      dialect: 'postgres',
+    TypeOrmModule.forRoot({
+      type: 'postgres',
       host: POSTGRES_HOST,
       port: Number(POSTGRES_PORT),
       username: POSTGRES_USER,
       password: POSTGRES_PASSWORD,
-      database: POSTGRES_DB,
-      models: [User, Role, UserRoles, Post],
-      autoLoadModels: true,
+      database: 'test',
+      entities: [User, Product],
+      synchronize: true,
     }),
     UsersModule,
-    RolesModule,
     AuthModule,
-    PostsModule,
-    FilesModule,
+    ProductsModule,
   ],
 })
 export class AppModule {}
