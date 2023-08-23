@@ -3,10 +3,11 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { User } from './users.model';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { JwtAuthGuard } from 'src/guard/jwt-auth.guard';
 
+// delete from swagger
 @ApiTags('Users')
-@Controller('users')
+@Controller()
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
@@ -25,21 +26,21 @@ export class UsersController {
     return this.usersService.getUserByEmail;
   }
 
-  //delete after testing
-  @ApiOperation({ summary: 'Get all users' })
-  @ApiResponse({ status: 200, type: [User] })
-  @UseGuards(JwtAuthGuard)
-  @Get()
-  findAll() {
-    return this.usersService.getAllUsers();
-  }
+  // //delete after testing
+  // @ApiOperation({ summary: 'Get all users' })
+  // @ApiResponse({ status: 200, type: [User] })
+  // @UseGuards(JwtAuthGuard)
+  // @Get()
+  // findAll() {
+  //   return this.usersService.getAllUsers();
+  // }
 
-  //delete after testing
-  @ApiOperation({ summary: 'Get User by id' })
-  @ApiResponse({ status: 200, type: [User] })
-  @UseGuards(JwtAuthGuard)
-  @Get()
-  findOneByID() {
-    return this.usersService.getUserByID;
-  }
+  // //delete after testing
+  // @ApiOperation({ summary: 'Get User by id' })
+  // @ApiResponse({ status: 200, type: [User] })
+  // @UseGuards(JwtAuthGuard)
+  // @Get()
+  // findOneByID() {
+  //   return this.usersService.getUserByID;
+  // }
 }

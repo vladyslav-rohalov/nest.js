@@ -17,6 +17,8 @@ export class OwnerQuard implements CanActivate {
 
     const product = await this.productsService.getProductByID(id);
 
+    // if empty [] return true
+
     if (product && user && product.user.id === user.id) return true;
 
     throw new HttpException('Something was wrong...', HttpStatus.NOT_FOUND);

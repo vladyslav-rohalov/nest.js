@@ -4,8 +4,8 @@ import { Post, Get, Patch, Delete } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Product } from './products.model';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
-import { OwnerQuard } from 'src/quard/owner.quard';
+import { JwtAuthGuard } from 'src/guard/jwt-auth.guard';
+import { OwnerQuard } from 'src/guard/owner.quard';
 
 @ApiTags('Products')
 @Controller('products')
