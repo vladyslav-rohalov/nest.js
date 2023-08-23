@@ -19,20 +19,22 @@ export class AuthService {
 
   async login(userDto: CreateUserDto) {
     const user = await this.validateUser(userDto);
-    return this.generateToken(user);
+    const token = await this.generateToken(user);
+    return token;
   }
 
   async registration(userDto: CreateUserDto) {
     const candidate = await this.userService.getUserByEmail(userDto.email);
     if (candidate) {
-      throw new HttpException('Email in use', HttpStatus.BAD_REQUEST);
+      throw new HttpException('Email in use', HttpStatus.CONFLICT);
     }
     const hashPassword = await bcrypt.hash(userDto.password, 5);
     const user = await this.userService.createUser({
       ...userDto,
       password: hashPassword,
     });
-    return this.generateToken(user);
+    const { token } = await this.generateToken(user);
+    return { email: user.email, token };
   }
 
   async generateToken(user: User) {

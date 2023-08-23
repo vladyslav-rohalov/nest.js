@@ -1,11 +1,18 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { Product } from 'src/products/products.model';
 
 @Entity({ name: 'users' })
 export class User {
   @ApiProperty({ example: '1', description: 'identifier' })
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn({ name: 'user_id' })
   id: number;
 
   @ApiProperty({ example: 'useremail@gmail.com', description: 'email' })
@@ -16,6 +23,12 @@ export class User {
   @Column()
   password: string;
 
-  @OneToMany(() => Product, product => product)
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+
+  @OneToMany(() => Product, product => product, { onDelete: 'CASCADE' })
   products: Product[];
 }

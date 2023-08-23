@@ -13,31 +13,33 @@ export class UsersController {
   @ApiOperation({ summary: 'Create user' })
   @ApiResponse({ status: 201, type: User })
   @Post()
-  createUser(@Body() userDto: CreateUserDto) {
+  create(@Body() userDto: CreateUserDto) {
     return this.usersService.createUser(userDto);
-  }
-
-  @ApiOperation({ summary: 'Get all users' })
-  @ApiResponse({ status: 200, type: [User] })
-  @UseGuards(JwtAuthGuard)
-  @Get()
-  getAll() {
-    return this.usersService.getAllUsers();
-  }
-
-  @ApiOperation({ summary: 'Get User by id' })
-  @ApiResponse({ status: 200, type: [User] })
-  @UseGuards(JwtAuthGuard)
-  @Get()
-  getUserByID() {
-    return this.usersService.getUserByID;
   }
 
   @ApiOperation({ summary: 'Get User by email' })
   @ApiResponse({ status: 200, type: [User] })
   @UseGuards(JwtAuthGuard)
   @Get()
-  getUserByEmail() {
+  findOne() {
     return this.usersService.getUserByEmail;
+  }
+
+  //delete after testing
+  @ApiOperation({ summary: 'Get all users' })
+  @ApiResponse({ status: 200, type: [User] })
+  @UseGuards(JwtAuthGuard)
+  @Get()
+  findAll() {
+    return this.usersService.getAllUsers();
+  }
+
+  //delete after testing
+  @ApiOperation({ summary: 'Get User by id' })
+  @ApiResponse({ status: 200, type: [User] })
+  @UseGuards(JwtAuthGuard)
+  @Get()
+  findOneByID() {
+    return this.usersService.getUserByID;
   }
 }

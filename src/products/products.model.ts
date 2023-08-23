@@ -1,20 +1,24 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  CreateDateColumn,
+  UpdateDateColumn,
+  JoinColumn,
+} from 'typeorm';
 import { User } from 'src/users/users.model';
 
 @Entity({ name: 'products' })
 export class Product {
   @ApiProperty({ example: '1', description: 'identifier' })
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn({ name: 'product_id' })
   id: number;
 
-  @ApiProperty({ example: 'BMW X6', description: 'product name' })
+  @ApiProperty({ example: 'BMW X6 ', description: 'product title' })
   @Column()
-  name: string;
-
-  @ApiProperty({ example: 'BMW X6 M Line ', description: 'product title' })
-  @Column()
-  content: string;
+  title: string;
 
   @ApiProperty({
     example: 'Fast SUV and blablabla',
@@ -27,7 +31,13 @@ export class Product {
   @Column()
   price: number;
 
-  @ManyToOne(() => User)
-  @Column()
-  userId: number;
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+
+  @ManyToOne(() => User, user => user.products)
+  @JoinColumn({ name: 'user_id' })
+  user: User;
 }

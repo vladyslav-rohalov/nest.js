@@ -1,36 +1,30 @@
-import 'dotenv/config';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-// import { SequelizeModule } from '@nestjs/sequelize';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { User } from './users/users.model';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { Product } from './products/products.model';
 import { ProductsModule } from './products/products.module';
 
-const {
-  POSTGRES_HOST,
-  POSTGRES_USER,
-  POSTGRES_DB,
-  POSTGRES_PASSWORD,
-  POSTGRES_PORT,
-} = process.env;
-
 @Module({
   controllers: [],
   providers: [],
   imports: [
-    ConfigModule.forRoot({ envFilePath: '.env' }),
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: POSTGRES_HOST,
-      port: Number(POSTGRES_PORT),
-      username: POSTGRES_USER,
-      password: POSTGRES_PASSWORD,
-      database: 'test',
-      entities: [User, Product],
-      synchronize: true,
+    ConfigModule.forRoot({ isGlobal: true }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => ({
+        type: 'postgres',
+        host: configService.get('POSTGRES_HOST'),
+        port: +configService.get('POSTGRES_PORT'),
+        username: configService.get('POSTGRES_USER'),
+        password: configService.get('POSTGRES_PASSWORD'),
+        database: configService.get('POSTGRES_DB'),
+        entities: [User, Product],
+        synchronize: true,
+      }),
+      inject: [ConfigService],
     }),
     UsersModule,
     AuthModule,
