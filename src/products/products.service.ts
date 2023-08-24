@@ -13,11 +13,11 @@ export class ProductsService {
   ) {}
 
   async createProduct(dto: CreateProductDto, id: number): Promise<Product> {
-    const isExist = await this.productRepository.findBy({
-      user: { id },
-      title: dto.title,
+    const isExist = await this.productRepository.findOne({
+      where: { title: dto.title, user: { id: id } },
+      relations: { user: true },
     });
-    if (isExist.length) {
+    if (isExist) {
       throw new HttpException(
         'This products alredy exist',
         HttpStatus.CONFLICT
@@ -35,12 +35,16 @@ export class ProductsService {
     return products;
   }
 
-  async getProductByID(id: number): Promise<Product | null> {
+  async getProduct(id: number): Promise<Product | null> {
     const product = await this.productRepository.findOne({
       where: { id },
       relations: { user: true },
     });
+    return product;
+  }
 
+  async getProductByID(id: number): Promise<Product | null> {
+    const product = await this.productRepository.findOneBy({ id });
     return product;
   }
 

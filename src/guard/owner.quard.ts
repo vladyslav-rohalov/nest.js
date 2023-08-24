@@ -15,9 +15,7 @@ export class OwnerQuard implements CanActivate {
     const user = req.user;
     const { id } = req.params;
 
-    const product = await this.productsService.getProductByID(id);
-
-    // if empty [] return true
+    const product = await this.productsService.getProduct(id);
 
     if (product && user && product.user.id === user.id) return true;
 
