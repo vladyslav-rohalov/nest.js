@@ -29,18 +29,20 @@
 <h3>Description</h3>
 <p>The application is a backend part to register users and add products to the user and use other CRUD methods for the product</p>
 <h3>User methods</h3>
+<p>auth/registration or auth/login endpoints<p/>
  <ul>
-        <li>Regestration using email and password</li>
-        <li>Login using email and password</li>
+        <li>Regestration using email and password. POST method</li>
+        <li>Login using email and password. POST method</li>
  </ul>
 
+ <p>/products endpoints<p/>
  <h3>Products methods</h3>
  <ul>
-        <li>Add products, using title, description, price</li>
-        <li>Get all products</li>
-        <li>Get products by id</li>
-        <li>Edit products</li>
-        <li>Delete products</li>
+        <li>Add products, using title, description, price. POST method</li>
+        <li>Get all products. GET method</li>
+        <li>Get products by id.GET method</li>
+        <li>Edit products. PATCH method</li>
+        <li>Delete products. DELETE method</li>
  </ul>
 
 <p>all methods are described in more detail in the swagger documentation</p>
