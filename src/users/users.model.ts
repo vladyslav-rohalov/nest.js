@@ -1,9 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Index, Entity, Column, OneToMany } from 'typeorm';
 import {
-  Entity,
-  Column,
   PrimaryGeneratedColumn,
-  OneToMany,
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -16,6 +14,7 @@ export class User {
   id: number;
 
   @ApiProperty({ example: 'useremail@gmail.com', description: 'email' })
+  @Index()
   @Column()
   email: string;
 

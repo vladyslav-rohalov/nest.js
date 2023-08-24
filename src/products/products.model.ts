@@ -1,9 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Index, Entity, Column, ManyToOne } from 'typeorm';
 import {
-  Entity,
-  Column,
   PrimaryGeneratedColumn,
-  ManyToOne,
   CreateDateColumn,
   UpdateDateColumn,
   JoinColumn,
@@ -13,6 +11,7 @@ import { User } from 'src/users/users.model';
 @Entity({ name: 'products' })
 export class Product {
   @ApiProperty({ example: '1', description: 'identifier' })
+  @Index()
   @PrimaryGeneratedColumn({ name: 'product_id' })
   id: number;
 
