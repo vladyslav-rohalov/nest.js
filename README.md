@@ -59,7 +59,7 @@
         <li>download the application using the command in your terminal:  gh repo clone vladyslav-rohalov/nest.js</li>
         <li>create an empty PostgreSQL database for the project</li>
         <li>create an .env file in the root of the project</li>
-        <li>fill in the env file based on the .env.example file, where <br /><b>PORT</b> is the port on which you are running the database, for example 3000,<br /> <b>POSTGRES_HOST</b> is the hosting on which you are running the database, for example localhost, <b>POSTGRES_USER</b> is postgres,<br /><b>POSTGRES_DB</b> is the name of the database you created earlier,<br /><b>POSTGRES_PASSWORD</b> is the password you set for the database,<br /> <b>POSTGRES_PORT</b> is the port on which the database runs (5432),<br /><b>PRIVATE_KEY</b> is the secret key for encrypting user passwords.</li>
+        <li>fill in the env file based on the .env.example file, where <br /><b>PORT</b> is the port on which you are running the database, for example 3000,<br /> <b>POSTGRES_HOST</b> is the hosting on which you are running the database, for example localhost,<br /> <b>POSTGRES_USER</b> is postgres,<br /><b>POSTGRES_DB</b> is the name of the database you created earlier,<br /><b>POSTGRES_PASSWORD</b> is the password you set for the database,<br /> <b>POSTGRES_PORT</b> is the port on which the database runs (5432),<br /><b>PRIVATE_KEY</b> is the secret key for encrypting user passwords.</li>
         <li>start the application with the command - npm run start</li>
         <li>Now you can open the documentation at http://localhost:PORT/swagger</li>
 </ol>
