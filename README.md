@@ -35,8 +35,9 @@
         <li>Login using email and password. POST method</li>
  </ul>
 
- <p>/products endpoints<p/>
+ 
  <h3>Products methods</h3>
+ <p>/products endpoints<p/>
  <ul>
         <li>Add products, using title, description, price. POST method</li>
         <li>Get all products. GET method</li>
