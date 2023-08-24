@@ -3,9 +3,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
 import { User } from './users.model';
-import { AuthModule } from 'src/auth/auth.module';
+import { AuthModule } from '../auth/auth.module';
 import { forwardRef } from '@nestjs/common/utils';
-import { Product } from 'src/products/products.model';
+import { Product } from '../products/products.model';
 
 @Module({
   controllers: [UsersController],

@@ -4,8 +4,8 @@ import { Response, Request } from 'express';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreateProductDto } from './dto/create-product.dto';
 import { ProductsService } from './products.service';
-import { JwtAuthGuard } from 'src/guard/jwt-auth.guard';
-import { OwnerQuard } from 'src/guard/owner.quard';
+import { JwtAuthGuard } from '../guard/jwt-auth.guard';
+import { OwnerQuard } from '../guard/owner.quard';
 import { ResSuccess, ResCreated, ResUpdated } from './responses.example';
 
 interface IRequest extends Request {

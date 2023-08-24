@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
   JoinColumn,
 } from 'typeorm';
-import { User } from 'src/users/users.model';
+import { User } from '../users/users.model';
 
 @Entity({ name: 'products' })
 export class Product {

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common/decorators';
 import { CanActivate } from '@nestjs/common';
 import { ExecutionContext } from '@nestjs/common';
-import { ProductsService } from 'src/products/products.service';
+import { ProductsService } from '../products/products.service';
 import { HttpException } from '@nestjs/common/exceptions';
 import { HttpStatus } from '@nestjs/common/enums';
 
