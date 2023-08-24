@@ -1,73 +1,65 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+<h1>Rangein tech task </h1>
+<h2> Swagger documentation available at localhost:${PORT}//swagger</h2>
+<p>This repository is technical task for Rangein company</p>
+<h3>Languages and Tools</h3>
+<ul>
+    <li>
+        <span><a href="https://nodejs.org/" target="_blank" rel="noreferrer">NodeJS</a>, environment was used</span>
+    </li>
+    <li>
+        <span><a href="https://nestjs.com/" target="_blank" rel="noreferrer">NestJS</a>, this framework was used to create the app</span>
+    </li>
+    <li>
+        <span><a href="https://typeorm.io/" target="_blank" rel="noreferrer">TypeORM</a>, this ORM used to create relationships between the app and the database </span>
+    </li>
+    <li>
+        <span><a href="https://www.postgresql.org/" target="_blank" rel="noreferrer">PostgreSQL</a>, to store data. </span>
+    </li>
+    <li>
+        <span><a href="https://github.com/kelektiv/node.bcrypt.js" target="_blank" rel="noreferrer">Bcrypt</a>, used to hash passwords</span>
+    </li>
+    <li>
+        <span><a href="https://github.com/typestack/class-validator" target="_blank" rel="noreferrer">Class validator</a>, used to create validation based on decorators </span>
+    </li>
+    <li>
+        <span><a href="https://swagger.io/" target="_blank" rel="noreferrer">Swagger</a>, to create documentation</span>
+    </li>  
+</ul>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+<h3>Description</h3>
+<p>The application is a backend part to register users and add products to the user and use other CRUD methods for the product</p>
+<h3>User methods</h3>
+ <ul>
+        <li>Regestration using email and password</li>
+        <li>Login using email and password</li>
+ </ul>
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+ <h3>Products methods</h3>
+ <ul>
+        <li>Add products, using title, description, price</li>
+        <li>Get all products</li>
+        <li>Get products by id</li>
+        <li>Edit products</li>
+        <li>Delete products</li>
+ </ul>
 
-## Description
+<p>all methods are described in more detail in the swagger documentation</p>
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+<h3>Error handling </h3>
+   <ul>
+        <li>400: Bad Request</li>
+        <li>401: Unauthorized</li>
+        <li>402: Forbidden</li>
+        <li>404: Not found</li>
+        <li>409: Conflict</li>
+   </ul>
 
-## Installation
-
-```bash
-$ npm install
-```
-
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+<h3>Application installation</h3>   
+<ol>
+        <li>download the application using the command in your terminal:  gh repo clone vladyslav-rohalov/nest.js</li>
+        <li>create an empty PostgreSQL database for the project</li>
+        <li>create an .env file in the root of the project</li>
+        <li>fill in the env file based on the .env.example file, where <br /><b>PORT</b> is the port on which you are running the database, for example 3000,<br /> <b>POSTGRES_HOST</b> is the hosting on which you are running the database, for example localhost, <b>POSTGRES_USER</b> is postgres,<br /><b>POSTGRES_DB</b> is the name of the database you created earlier,<br /><b>POSTGRES_PASSWORD</b> is the password you set for the database,<br /> <b>POSTGRES_PORT</b> is the port on which the database runs (5432),<br /><b>PRIVATE_KEY</b> is the secret key for encrypting user passwords.</li>
+        <li>start the application with the command - npm run start</li>
+        <li>Now you can open the documentation at http://localhost:PORT/swagger</li>
+</ol>
