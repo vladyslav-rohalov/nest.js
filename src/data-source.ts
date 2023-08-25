@@ -12,8 +12,6 @@ const {
   POSTGRES_PORT,
 } = process.env;
 
-console.log(POSTGRES_DB);
-
 export const AppDataSource = new DataSource({
   type: 'postgres',
   host: POSTGRES_HOST,
@@ -21,7 +19,7 @@ export const AppDataSource = new DataSource({
   username: POSTGRES_USER,
   password: POSTGRES_PASSWORD,
   database: POSTGRES_DB,
-  synchronize: true,
+  synchronize: false,
   logging: false,
   entities: [User, Product],
   migrations: ['src/migration/*.ts'],

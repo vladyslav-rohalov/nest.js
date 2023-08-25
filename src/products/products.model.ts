@@ -20,6 +20,13 @@ export class Product {
   title: string;
 
   @ApiProperty({
+    example: 'test column ',
+    description: 'test column for migration',
+  })
+  @Column({ default: null, comment: 'comment' })
+  tmp: string;
+
+  @ApiProperty({
     example: 'Fast SUV and blablabla',
     description: 'product description',
   })
